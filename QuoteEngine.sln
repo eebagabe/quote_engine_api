@@ -7,6 +7,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{8C1A1A7E-C02
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuoteEngine.Api", "src\QuoteEngine.Api\QuoteEngine.Api.csproj", "{EBF2532C-9543-437C-A784-58D401EE39BF}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{1F3507D6-D0FF-4604-B7D5-D44AF74B0629}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuoteEngine.Api.Tests", "tests\QuoteEngine.Api.Tests\QuoteEngine.Api.Tests.csproj", "{7F0A37ED-2441-4B1D-95E6-514EF7FCB269}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -20,8 +24,13 @@ Global
 		{EBF2532C-9543-437C-A784-58D401EE39BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EBF2532C-9543-437C-A784-58D401EE39BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EBF2532C-9543-437C-A784-58D401EE39BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F0A37ED-2441-4B1D-95E6-514EF7FCB269}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F0A37ED-2441-4B1D-95E6-514EF7FCB269}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F0A37ED-2441-4B1D-95E6-514EF7FCB269}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F0A37ED-2441-4B1D-95E6-514EF7FCB269}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{EBF2532C-9543-437C-A784-58D401EE39BF} = {8C1A1A7E-C028-4831-857D-AFEC405091FD}
+		{7F0A37ED-2441-4B1D-95E6-514EF7FCB269} = {1F3507D6-D0FF-4604-B7D5-D44AF74B0629}
 	EndGlobalSection
 EndGlobal
