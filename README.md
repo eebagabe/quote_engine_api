@@ -8,9 +8,9 @@ Passo a passo para rodar o projeto localmente.
 
 ## Dependências
 
-- PHP 8.1+
+- .NET SDK 8.0
 - PostgreSQL 18.4
-- Composer
+- dotnet-ef (`dotnet tool install --global dotnet-ef`)
 
 ## Configuração
 
@@ -21,16 +21,13 @@ git clone git@github.com:ebagabee/quote_engine_api.git
 cd quote_engine_api
 ```
 
-### 2. Instalar dependências
+### 2. Restaurar dependências
 
 ```bash
-composer install
+dotnet restore
 ```
 
 ### 3. Configurar o ambiente
-
-- Copie o arquivo de `.env.example` ou duplique, renomeie para `.env`.
-- Edite o `.env` com suas credenciais do PostgreSQL:
 
 ***Crie um banco de dados localmente***
 - Em seu gerenciador de banco de dados, ou internamente no terminal postgres:
@@ -39,37 +36,37 @@ composer install
 CREATE DATABASE quote_engine
 ```
 
-```dotenv
-DB_CONNECTION=pgsql
-DB_HOST=127.0.0.1
-DB_PORT=5432
-DB_DATABASE=quote_engine 
-DB_USERNAME=postgres
-DB_PASSWORD=sua_senha
+- Edite a connection string em `src/QuoteEngine.Api/appsettings.json` com suas credenciais do PostgreSQL:
+
+```json
+"ConnectionStrings": {
+  "Default": "Host=localhost;Port=5432;Database=quote_engine;Username=postgres;Password=sua_senha"
+}
 ```
 
-### 4. Gerar a chave da aplicação
+Ou defina pela variável de ambiente `ConnectionStrings__Default`.
+
+### 4. Rodar as migrations
 
 ```bash
-php artisan key:generate
+dotnet ef database update -p src/QuoteEngine.Api
 ```
 
-### 5. Rodar as migrations
+### 5. Subir o servidor
 
 ```bash
-php artisan migrate
-```
-
-### 6. Subir o servidor
-
-```bash
-php artisan serve
+dotnet run --project src/QuoteEngine.Api
 ```
 
 A API estará disponível em `http://localhost:8000`.
 
+## Endpoints
+
+- `POST /api/quotes`: calcula e salva uma cotação
+- `GET /api/quotes`: lista todas as cotações
+
 ### Para Executar testes
 
 ```bash
-php artisan test
+dotnet test
 ```
